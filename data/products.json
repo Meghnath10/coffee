@@ -4,7 +4,7 @@
             "id": 1,
             "name": "House Blend Coffee",
             "description": "Our signature blend with notes of chocolate and caramel. A medium roast that's perfect for any time of day. This balanced coffee is sourced from farms in Colombia and Brazil.",
-            "price": 12.99,
+            "price": 975,
             "image": "/static/images/products/product_1.jpg",
             "category": "coffee",
             "featured": true
@@ -13,7 +13,7 @@
             "id": 2,
             "name": "Ethiopian Single Origin",
             "description": "Light roasted with bright, fruity notes. This exceptional coffee from the highlands of Ethiopia offers vibrant acidity with floral, berry, and citrus notes. Perfect for pour-over brewing.",
-            "price": 15.99,
+            "price": 1199,
             "image": "/static/images/products/product_2.jpg",
             "category": "coffee",
             "featured": true
@@ -22,7 +22,7 @@
             "id": 3,
             "name": "Espresso Blend",
             "description": "Dark roasted for perfect espresso extraction. Our espresso blend combines beans from Indonesia and Central America for a rich, complex shot with notes of dark chocolate and caramel.",
-            "price": 14.99,
+            "price": 1125,
             "image": "/static/images/products/product_3.jpg",
             "category": "coffee",
             "featured": false
@@ -31,7 +31,7 @@
             "id": 4,
             "name": "Cold Brew Kit",
             "description": "Everything you need to make smooth cold brew at home. Kit includes a 1-liter glass brewer, reusable filter, and 8oz of our special cold brew blend. Makes approximately 4 servings.",
-            "price": 24.99,
+            "price": 1875,
             "image": "/static/images/products/equipment_default.jpg",
             "category": "equipment",
             "featured": true
@@ -40,7 +40,7 @@
             "id": 5,
             "name": "Pour Over Coffee Maker",
             "description": "Classic glass pour over with wooden collar. This elegant brewer allows for precise control over brewing variables for a perfect cup every time. Includes 15 paper filters to get you started.",
-            "price": 29.99,
+            "price": 2250,
             "image": "/static/images/products/equipment_default.jpg",
             "category": "equipment",
             "featured": false
@@ -49,7 +49,7 @@
             "id": 6,
             "name": "Colombian Decaf",
             "description": "Full-bodied decaf with notes of caramel and nuts. This water-processed decaf gives you all the flavor without the caffeine. Perfect for evening enjoyment.",
-            "price": 13.99,
+            "price": 1050,
             "image": "/static/images/products/product_6.jpg",
             "category": "coffee",
             "featured": false
@@ -58,7 +58,7 @@
             "id": 7,
             "name": "French Press",
             "description": "Classic stainless steel French press. Makes up to 32oz of rich, full-bodied coffee. The double-wall construction keeps your coffee hot longer.",
-            "price": 34.99,
+            "price": 2625,
             "image": "/static/images/products/equipment_default.jpg",
             "category": "equipment",
             "featured": false
@@ -67,7 +67,7 @@
             "id": 8,
             "name": "Sumatra Dark Roast",
             "description": "A bold, earthy coffee with low acidity and notes of dark chocolate and spice. This single-origin from Sumatra has a distinctive flavor profile that's perfect for dark roast lovers.",
-            "price": 14.99,
+            "price": 1125,
             "image": "/static/images/products/coffee_default.jpg",
             "category": "coffee",
             "featured": false
