@@ -32,7 +32,7 @@
             "name": "Cold Brew Kit",
             "description": "Everything you need to make smooth cold brew at home. Kit includes a 1-liter glass brewer, reusable filter, and 8oz of our special cold brew blend. Makes approximately 4 servings.",
             "price": 1875,
-            "image": "/static/images/products/equipment_default.jpg",
+            "image": "/static/images/products/product_4.jpg",
             "category": "equipment",
             "featured": true
         },
@@ -41,7 +41,7 @@
             "name": "Pour Over Coffee Maker",
             "description": "Classic glass pour over with wooden collar. This elegant brewer allows for precise control over brewing variables for a perfect cup every time. Includes 15 paper filters to get you started.",
             "price": 2250,
-            "image": "/static/images/products/equipment_default.jpg",
+            "image": "/static/images/products/product_5.jpg",
             "category": "equipment",
             "featured": false
         },
@@ -59,7 +59,7 @@
             "name": "French Press",
             "description": "Classic stainless steel French press. Makes up to 32oz of rich, full-bodied coffee. The double-wall construction keeps your coffee hot longer.",
             "price": 2625,
-            "image": "/static/images/products/equipment_default.jpg",
+            "image": "/static/images/products/product_7.jpg",
             "category": "equipment",
             "featured": false
         },
@@ -68,7 +68,7 @@
             "name": "Sumatra Dark Roast",
             "description": "A bold, earthy coffee with low acidity and notes of dark chocolate and spice. This single-origin from Sumatra has a distinctive flavor profile that's perfect for dark roast lovers.",
             "price": 1125,
-            "image": "/static/images/products/coffee_default.jpg",
+            "image": "/static/images/products/product_8.jpg",
             "category": "coffee",
             "featured": false
         }
