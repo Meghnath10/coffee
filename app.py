@@ -221,7 +221,10 @@ def checkout():
 
 @app.route('/confirmation')
 def confirmation():
-    return render_template('confirmation.html')
+    from datetime import datetime, timedelta
+    import random
+    now = datetime.now()
+    return render_template('confirmation.html', now=now, timedelta=timedelta, range=range, random=random)
 
 # API routes for cart functionality
 @app.route('/api/cart', methods=['GET'])

@@ -15,4 +15,5 @@ dependencies = [
     "wtforms>=3.2.1",
     "requests>=2.32.3",
     "pillow>=11.1.0",
+    "twilio>=9.4.6",
 ]
