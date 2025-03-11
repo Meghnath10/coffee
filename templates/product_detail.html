@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - Brew Haven{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('products') }}">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+        </ol>
+    </nav>
+    
+    <div class="row mt-4">
+        <!-- Product Image -->
+        <div class="col-md-6 mb-4">
+            <img src="{{ product.image }}" class="img-fluid rounded product-detail-img" alt="{{ product.name }}">
+        </div>
+        
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h1 class="mb-3">{{ product.name }}</h1>
+            
+            <div class="mb-3">
+                <span class="fs-4 fw-bold">${{ "%.2f"|format(product.price) }}</span>
+            </div>
+            
+            <div class="mb-4">
+                <p>{{ product.description }}</p>
+            </div>
+            
+            <div class="mb-4">
+                <div class="row g-2 align-items-center">
+                    <div class="col-auto">
+                        <label for="quantity" class="col-form-label">Quantity:</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="quantity" class="form-control" value="1" min="1">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg add-to-cart" 
+                       data-id="{{ product.id }}" 
+                       data-name="{{ product.name }}" 
+                       data-price="{{ product.price }}">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="mb-3">
+                <h5>Product Details</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Category:</span>
+                        <span class="text-capitalize">{{ product.category }}</span>
+                    </li>
+                    {% if product.category == 'coffee' %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Origin:</span>
+                        <span>{{ product.name.split()[0] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Roast Level:</span>
+                        <span>
+                            {% if 'dark' in product.name.lower() or 'espresso' in product.name.lower() %}
+                                Dark
+                            {% elif 'light' in product.name.lower() or 'ethiopian' in product.name.lower() %}
+                                Light
+                            {% else %}
+                                Medium
+                            {% endif %}
+                        </span>
+                    </li>
+                    {% endif %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Shipping:</span>
+                        <span>Free on orders over $35</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mt-4">
+                <h5>Share This Product</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-facebook-f fs-5"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-twitter fs-5"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-pinterest fs-5"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fas fa-envelope fs-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Related Products -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="mb-4">You Might Also Like</h3>
+            
+            <div class="row g-4">
+                {% for i in range(1, 4) %}
+                {% set related_id = (product.id + i) % 8 + 1 %}
+                {% set related = products|selectattr('id', 'eq', related_id)|first %}
+                {% if related and related.id != product.id %}
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-container">
+                            <img src="{{ related.image }}" class="card-img-top" alt="{{ related.name }}">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ related.name }}</h5>
+                            <p class="card-text">{{ related.description | truncate(80) }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fs-5">${{ "%.2f"|format(related.price) }}</span>
+                                <a href="{{ url_for('product_detail', product_id=related.id) }}" class="btn btn-outline-primary">
+                                    View Product
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Update add to cart button to use quantity input
+    const addToCartBtn = document.querySelector('.add-to-cart');
+    const quantityInput = document.getElementById('quantity');
+    
+    if (addToCartBtn && quantityInput) {
+        const originalAddToCart = addToCartBtn.onclick;
+        
+        addToCartBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            const productId = parseInt(this.dataset.id);
+            const productName = this.dataset.name;
+            const productPrice = parseFloat(this.dataset.price);
+            const quantity = parseInt(quantityInput.value);
+            
+            if (quantity < 1) {
+                alert('Please select a valid quantity');
+                return;
+            }
+            
+            // API call to add to cart
+            fetch('/api/cart/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    showToast(`${productName} added to cart!`);
+                    // Update cart display
+                    updateCartDisplay();
+                }
+            })
+            .catch(error => {
+                console.error('Error adding to cart:', error);
+                showToast('Error adding item to cart', 'error');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

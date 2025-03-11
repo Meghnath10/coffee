@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Shopping Cart - Brew Haven{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-3">
+    <h1 class="mb-4">Your Shopping Cart</h1>
+    
+    <!-- Empty Cart Message -->
+    <div class="empty-state cart-empty">
+        <i class="fas fa-shopping-cart mb-3"></i>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added any products to your cart yet.</p>
+        <a href="{{ url_for('products') }}" class="btn btn-primary mt-3">Continue Shopping</a>
+    </div>
+    
+    <!-- Cart Table -->
+    <div class="card cart-table d-none">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Cart items will be dynamically inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-danger clear-cart">
+                    <i class="fas fa-trash"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Summary -->
+    <div class="row mt-4 cart-summary d-none">
+        <div class="col-md-6 offset-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Summary</h5>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal:</span>
+                        <span class="cart-subtotal">$0.00</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tax (10%):</span>
+                        <span class="cart-tax">$0.00</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between mb-3 fw-bold">
+                        <span>Total:</span>
+                        <span class="cart-total">$0.00</span>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('checkout') }}" class="btn btn-primary btn-lg">
+                            Proceed to Checkout
+                        </a>
+                        <a href="{{ url_for('products') }}" class="btn btn-outline-secondary">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,152 @@
+/* Custom styles for Coffee Shop */
+
+:root {
+  --coffee-dark: #3e2723;
+  --coffee-medium: #795548;
+  --coffee-light: #d7ccc8;
+  --coffee-accent: #ffab00;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 60px;
+}
+
+/* Hero section */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                    url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1200');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 8rem 0;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-weight: 700;
+}
+
+/* Product cards */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img-container img {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+/* Cart badge */
+.cart-badge {
+  position: relative;
+  top: -8px;
+  right: 5px;
+  font-size: 0.6rem;
+}
+
+/* Product Details */
+.product-detail-img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Checkout form */
+.checkout-form label {
+  font-weight: 500;
+}
+
+/* About section */
+.about-section {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  padding: 4rem 0;
+}
+
+/* Testimonials */
+.testimonial-card {
+  border-left: 4px solid var(--coffee-accent);
+}
+
+/* Banner for promotions */
+.promo-banner {
+  background-color: var(--coffee-medium);
+  color: white;
+  padding: 0.5rem 0;
+}
+
+/* Fix for sticky footer */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Cart page */
+.cart-item-img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+/* Empty cart/wishlist styles */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: var(--bs-gray-400);
+  margin-bottom: 1rem;
+}
+
+/* Confirmation page */
+.order-confirmation {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.confirmation-checkmark {
+  color: var(--bs-success);
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}

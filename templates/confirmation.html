@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmation - Brew Haven{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-3">
+    <div class="order-confirmation">
+        <i class="fas fa-check-circle confirmation-checkmark"></i>
+        <h1 class="mb-4">Thank You for Your Order!</h1>
+        <p class="lead mb-5">Your order has been successfully placed.</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order Details</h5>
+                <p class="mb-1"><strong>Order Number:</strong> #{{ '{:05d}'.format(100 + range(1, 1000)|random) }}</p>
+                <p class="mb-1"><strong>Date:</strong> {{ now.strftime('%B %d, %Y') }}</p>
+                <p class="mb-0"><strong>Estimated Delivery:</strong> {{ (now + timedelta(days=range(3, 7)|random)).strftime('%B %d, %Y') }}</p>
+            </div>
+        </div>
+        
+        <p>A confirmation email has been sent to your email address.</p>
+        
+        <div class="mt-5">
+            <a href="{{ url_for('products') }}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Add current date functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // This would normally be handled on the server side in the template,
+    // but we're adding client-side as a fallback
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    // Set order date
+    const dateElements = document.querySelectorAll('.order-date');
+    dateElements.forEach(el => {
+        el.textContent = dateStr;
+    });
+    
+    // Set estimated delivery (3-7 days from now)
+    const deliveryDate = new Date(now);
+    deliveryDate.setDate(now.getDate() + Math.floor(Math.random() * 4) + 3);
+    const deliveryDateStr = deliveryDate.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    const deliveryElements = document.querySelectorAll('.delivery-date');
+    deliveryElements.forEach(el => {
+        el.textContent = deliveryDateStr;
+    });
+});
+</script>
+{% endblock %}

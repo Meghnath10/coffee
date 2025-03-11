@@ -1,0 +1,10 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M111.25 31.25H121.25C123.321 31.25 125.308 32.0795 126.777 33.5484C128.245 35.0174 129.075 37.0054 129.075 39.0762C129.075 41.147 128.245 43.1351 126.777 44.604C125.308 46.073 123.321 46.9025 121.25 46.9025H118.75V89.4025C118.75 93.5441 117.091 97.5175 114.153 100.456C111.214 103.394 107.241 105.053 103.099 105.053H46.8994C42.7579 105.053 38.7844 103.394 35.8458 100.456C32.9072 97.5175 31.2494 93.5441 31.2494 89.4025V46.9025H28.7494C26.6786 46.9025 24.6906 46.073 23.2216 44.604C21.7527 43.1351 20.9232 41.147 20.9232 39.0762C20.9232 37.0054 21.7527 35.0174 23.2216 33.5484C24.6906 32.0795 26.6786 31.25 28.7494 31.25H38.7494" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46.875 15.625V46.875" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M75 15.625V46.875" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M103.125 15.625V46.875" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M103.125 120.312C103.125 127.188 94.375 134.375 75 134.375C55.625 134.375 46.875 127.188 46.875 120.312" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M31.25 62.5H118.75" stroke="#795548" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="75" cy="75" r="72" stroke="#FFAB00" stroke-width="6"/>
+  <text x="75" y="93" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#3E2723">BREW HAVEN</text>
+</svg>
